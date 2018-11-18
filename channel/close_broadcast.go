@@ -1,5 +1,5 @@
 //https://talks.golang.org/2012/10things.slide
-package main
+package channel
 
 import (
 	"fmt"
@@ -15,7 +15,7 @@ func waiter(i int, block, done chan struct{}) {
 	done <- struct{}{}
 }
 
-func _main() {
+func Close_broadcast_main() {
 	block, done := make(chan struct{}), make(chan struct{})
 	for i := 0; i < 4; i++ {
 		go waiter(i, block, done)
